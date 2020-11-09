@@ -11,13 +11,21 @@ namespace myfirstapp
         {
             List<Entity> entities = new List<Entity>();
             Player player = new Player();
+            Enemy enemy = new Enemy();
 
             entities.Add(player);
+            entities.Add(enemy);
 
             Console.Clear();
             Console.CursorVisible = false;
             while (true)
             {
+                Console.SetCursorPosition(enemy.x, enemy.y);
+                Console.Write("E");
+                System.Threading.Thread.Sleep(100);
+                Console.SetCursorPosition(enemy.x, enemy.y);
+                Console.Write(" ");
+
                 Console.SetCursorPosition(player.x, Console.WindowHeight);
                 Console.Write("P");
                 System.Threading.Thread.Sleep(100);
