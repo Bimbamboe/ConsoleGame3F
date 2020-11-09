@@ -25,7 +25,7 @@ namespace ConsoleGame3F
 
         public override void update()
         {
-            if (y == 0)
+            if (y == 0 || y == Console.WindowHeight)
             {
                 undraw();
                 Program.entities.Remove(this);

@@ -15,7 +15,7 @@ namespace ConsoleGame3F
         public Enemy()
         {
             pos(new Random().Next(Console.WindowWidth), 0);
-            type = new Random().Next(2);
+            type = new Random().Next(3);
         }
 
         public override void draw()
@@ -35,12 +35,7 @@ namespace ConsoleGame3F
 
             if (type == 0)
             {
-                if (shoottimer == 60)
-                {
-                    shoot(false);
-                    shoottimer = 0;
-                }
-                shoottimer++;
+                
             }
 
             if (type == 1)
@@ -49,18 +44,33 @@ namespace ConsoleGame3F
                 Random r = new Random();
                 if (r.Next(2) == 1)
                 {
+                    if(x >= Console.WindowWidth - 1)
+                    {
+                        left();
+                    }
+                    else
+                    {
+                        right();
+                    }
                     
-                    //right();
                 }
                 else
                 {
-                    //left();
+                    if (x <= 0)
+                    {
+                        right();
+                    }
+                    else
+                    {
+                        left();
+                    }
+                        
                 }
             }
 
             if (type == 2)
             {
-                if(shoottimer == 12)
+                if(shoottimer == 60)
                 {
                     shoot(false);
                     shoottimer = 0;

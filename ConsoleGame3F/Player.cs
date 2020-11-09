@@ -6,7 +6,7 @@ namespace ConsoleGame3F
 {
     class Player : Entity
     {
-        int life = 3;
+        public int life = 3;
 
         public Player()
         {
@@ -39,5 +39,7 @@ namespace ConsoleGame3F
             Console.SetCursorPosition(x, Console.WindowHeight);
             Console.Write("P");
         }
+
+
     }
 }

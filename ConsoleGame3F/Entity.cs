@@ -47,7 +47,7 @@ namespace ConsoleGame3F
         public void shoot(bool up)
         {
             Bullet b = new Bullet(up);
-            b.pos(x, y - 1);
+            b.pos(x, up ? y - 1 : y + 1);
             Program.entities.Add(b);
         }
 
