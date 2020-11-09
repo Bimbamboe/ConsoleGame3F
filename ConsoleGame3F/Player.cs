@@ -8,7 +8,7 @@ namespace ConsoleGame3F
     {
         public Player()
         {
-            x = Console.WindowWidth / 2;
+            pos(Console.WindowWidth / 2, Console.WindowHeight);
         }
 
 

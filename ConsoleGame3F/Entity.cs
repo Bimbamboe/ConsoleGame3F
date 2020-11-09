@@ -6,7 +6,14 @@ namespace ConsoleGame3F
 {
     abstract class Entity
     {
-        public int x, y;
+        private int x, y;
+        
+        public void pos(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
         public void left()
         {
             x = Math.Max(0, x - 1);
