@@ -1,18 +1,16 @@
-﻿using System;
+﻿using ConsoleGame3F;
+using System;
 
 namespace myfirstapp
 {
     public class Enemy
     {
-        public int x
-    }
-    public class Player
-    {
-        public int x;
-
-        public Player()
+        public int x, y;
+        Random rand = new Random();
+        public Enemy()
         {
-            x = Console.WindowWidth / 2;
+            x = rand.Next(Console.WindowWidth);
+            y = 0;
         }
 
         public void left()
@@ -23,6 +21,11 @@ namespace myfirstapp
         public void right()
         {
             x = Math.Min(Console.WindowWidth, x + 1);
+        }
+
+        public void down()
+        {
+            y = y + 1;
         }
     }
 
