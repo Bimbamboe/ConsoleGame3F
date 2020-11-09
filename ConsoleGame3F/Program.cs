@@ -1,5 +1,7 @@
 ﻿using ConsoleGame3F;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace myfirstapp
 {
@@ -7,7 +9,11 @@ namespace myfirstapp
     {
         static void Main(string[] args)
         {
+            List<Entity> entities = new List<Entity>();
             Player player = new Player();
+
+            entities.Add(player);
+
             Console.Clear();
             Console.CursorVisible = false;
             while (true)
@@ -17,17 +23,11 @@ namespace myfirstapp
                 System.Threading.Thread.Sleep(100);
                 Console.SetCursorPosition(player.x, Console.WindowHeight);
                 Console.Write(" ");
-                if (Console.KeyAvailable)
+
+                for(int i = 0; i < entities.Count; i++)
                 {
-                    ConsoleKey key = Console.ReadKey(true).Key;
-                    if (key.Equals(ConsoleKey.J))
-                    {
-                        player.left();
-                    }
-                    if (key.Equals(ConsoleKey.K))
-                    {
-                        player.right();
-                    }
+                    Entity e = entities[i];
+                    e.update();
                 }
 
             }

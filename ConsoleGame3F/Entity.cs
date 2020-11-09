@@ -29,6 +29,13 @@ namespace ConsoleGame3F
             y = y + 1;
         }
 
+        public void up()
+        {
+            y = y - 1;
+        }
+
+        public abstract void update();
+
         public void shoot()
         {
 

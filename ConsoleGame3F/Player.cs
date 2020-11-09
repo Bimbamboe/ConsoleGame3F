@@ -11,6 +11,20 @@ namespace ConsoleGame3F
             pos(Console.WindowWidth / 2, Console.WindowHeight);
         }
 
-
+        public override void update()
+        {
+            if (Console.KeyAvailable)
+            {
+                ConsoleKey key = Console.ReadKey(true).Key;
+                if (key.Equals(ConsoleKey.J))
+                {
+                    left();
+                }
+                if (key.Equals(ConsoleKey.K))
+                {
+                    right();
+                }
+            }
+        }
     }
 }
