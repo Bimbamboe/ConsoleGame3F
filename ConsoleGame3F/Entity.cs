@@ -36,9 +36,11 @@ namespace ConsoleGame3F
 
         public abstract void update();
 
-        public void shoot()
-        {
+        public abstract void draw();
 
+        public void shoot(bool up)
+        {
+            Bullet b = new Bullet(up);
         }
 
     }

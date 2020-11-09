@@ -11,13 +11,22 @@ namespace ConsoleGame3F
 
         public Enemy()
         {
-            pos(new Random().Next(), 0);
+            pos(new Random().Next(Console.WindowWidth), 0);
             type = new Random().Next(2);
+        }
+
+        public override void draw()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("E");
         }
 
         public override void update()
         {
-            if(type == 0)
+            Console.SetCursorPosition(x, y);
+            Console.Write(" ");
+
+            if (type == 0)
             {
 
             }
@@ -29,6 +38,7 @@ namespace ConsoleGame3F
             {
 
             }
+            down();
         }
     }
 }

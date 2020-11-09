@@ -9,20 +9,32 @@ namespace myfirstapp
     {
         static void Main(string[] args)
         {
+            int timer = 0;
+
             List<Entity> entities = new List<Entity>();
             Player player = new Player();
 
             entities.Add(player);
 
+            entities.Add(new Enemy());
+
             Console.Clear();
             Console.CursorVisible = false;
             while (true)
             {
-                Console.SetCursorPosition(player.x, Console.WindowHeight);
-                Console.Write("P");
+                if(timer % 10 == 0)
+                {
+                    Enemy en = new Enemy();
+                    entities.Add(en);
+                }
+
+                for (int i = 0; i < entities.Count; i++)
+                {
+                    Entity e = entities[i];
+                    e.draw();
+                }
+
                 System.Threading.Thread.Sleep(100);
-                Console.SetCursorPosition(player.x, Console.WindowHeight);
-                Console.Write(" ");
 
                 for(int i = 0; i < entities.Count; i++)
                 {
@@ -30,6 +42,7 @@ namespace myfirstapp
                     e.update();
                 }
 
+                timer++;
             }
         }
     }

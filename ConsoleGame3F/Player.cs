@@ -13,6 +13,9 @@ namespace ConsoleGame3F
 
         public override void update()
         {
+            Console.SetCursorPosition(x, Console.WindowHeight);
+            Console.Write(" ");
+
             if (Console.KeyAvailable)
             {
                 ConsoleKey key = Console.ReadKey(true).Key;
@@ -25,6 +28,12 @@ namespace ConsoleGame3F
                     right();
                 }
             }
+        }
+
+        public override void draw()
+        {
+            Console.SetCursorPosition(x, Console.WindowHeight);
+            Console.Write("P");
         }
     }
 }
