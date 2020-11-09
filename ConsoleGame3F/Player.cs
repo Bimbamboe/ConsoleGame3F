@@ -6,6 +6,8 @@ namespace ConsoleGame3F
 {
     class Player : Entity
     {
+        int life = 3;
+
         public Player()
         {
             pos(Console.WindowWidth / 2, Console.WindowHeight);
@@ -13,6 +15,7 @@ namespace ConsoleGame3F
 
         public override void update()
         {
+
             if (Console.KeyAvailable)
             {
                 ConsoleKey key = Console.ReadKey(true).Key;

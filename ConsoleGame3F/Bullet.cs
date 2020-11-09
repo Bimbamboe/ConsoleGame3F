@@ -16,12 +16,22 @@ namespace ConsoleGame3F
 
         public override void draw()
         {
+            if(!(y < 0 || y >= Console.WindowHeight)) {
+                Console.SetCursorPosition(x, y);
+                Console.Write(".");
+            }
             
         }
 
         public override void update()
         {
-            if(up)
+            if (y == 0)
+            {
+                undraw();
+                Program.entities.Remove(this);
+            }
+
+            if (up)
             {
                 up();
             }

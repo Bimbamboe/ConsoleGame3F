@@ -47,6 +47,20 @@ namespace ConsoleGame3F
         public void shoot(bool up)
         {
             Bullet b = new Bullet(up);
+            b.pos(x, y - 1);
+            Program.entities.Add(b);
+        }
+
+        public bool outofbounds()
+        {
+            if (x < 0 || x > Console.WindowWidth || y < 0 || y > Console.WindowHeight)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

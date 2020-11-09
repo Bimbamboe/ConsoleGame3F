@@ -3,26 +3,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace myfirstapp
+namespace ConsoleGame3F
 {
     class Program
     {
+        public static List<Entity> entities = new List<Entity>();
+
         static void Main(string[] args)
         {
             int timer = 0;
 
-            List<Entity> entities = new List<Entity>();
             Player player = new Player();
-
-            entities.Add(player);
-
-            entities.Add(new Enemy());
 
             Console.Clear();
             Console.CursorVisible = false;
+
             while (true)
             {
-                if(timer % 10 == 0)
+                if(timer % 60 == 0)
                 {
                     Enemy en = new Enemy();
                     entities.Add(en);
@@ -31,15 +29,21 @@ namespace myfirstapp
                 for (int i = 0; i < entities.Count; i++)
                 {
                     Entity e = entities[i];
+
+                    player.draw();
                     e.draw();
                 }
 
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(50);
 
                 for(int i = 0; i < entities.Count; i++)
                 {
                     Entity e = entities[i];
+
+                    player.undraw();
                     e.undraw();
+
+                    player.update();
                     e.update();
                 }
 
