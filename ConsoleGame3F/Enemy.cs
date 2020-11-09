@@ -9,26 +9,81 @@ namespace ConsoleGame3F
     {
         int type;
 
+        int slow = 0;
+        int shoottimer = 60;
+
         public Enemy()
         {
-            pos(new Random().Next(), 0);
-            type = new Random().Next(2);
+            pos(new Random().Next(Console.WindowWidth), 0);
+            type = new Random().Next(3);
+        }
+
+        public override void draw()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("E");
         }
 
         public override void update()
         {
-            if(type == 0)
+            if (outofbounds())
             {
-
+                undraw();
+                Program.entities.Remove(this);
             }
+
+
+            if (type == 0)
+            {
+                
+            }
+
             if (type == 1)
             {
-
+                
+                Random r = new Random();
+                if (r.Next(2) == 1)
+                {
+                    if(x >= Console.WindowWidth - 1)
+                    {
+                        left();
+                    }
+                    else
+                    {
+                        right();
+                    }
+                    
+                }
+                else
+                {
+                    if (x <= 0)
+                    {
+                        right();
+                    }
+                    else
+                    {
+                        left();
+                    }
+                        
+                }
             }
+
             if (type == 2)
             {
-
+                if(shoottimer == 60)
+                {
+                    shoot(false);
+                    shoottimer = 0;
+                }
+                shoottimer++;
             }
+
+            if(slow == 6)
+            {
+                down();
+                slow = 0;
+            }
+            slow++;
         }
     }
 }

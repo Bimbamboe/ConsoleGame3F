@@ -36,9 +36,31 @@ namespace ConsoleGame3F
 
         public abstract void update();
 
-        public void shoot()
-        {
+        public abstract void draw();
 
+        public void undraw()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(" ");
+        }
+
+        public void shoot(bool up)
+        {
+            Bullet b = new Bullet(up);
+            b.pos(x, up ? y - 1 : y + 1);
+            Program.entities.Add(b);
+        }
+
+        public bool outofbounds()
+        {
+            if (x < 0 || x > Console.WindowWidth || y < 0 || y > Console.WindowHeight)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }
