@@ -39,6 +39,7 @@ namespace myfirstapp
                 for(int i = 0; i < entities.Count; i++)
                 {
                     Entity e = entities[i];
+                    e.undraw();
                     e.update();
                 }
 

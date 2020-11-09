@@ -38,6 +38,12 @@ namespace ConsoleGame3F
 
         public abstract void draw();
 
+        public void undraw()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(" ");
+        }
+
         public void shoot(bool up)
         {
             Bullet b = new Bullet(up);

@@ -13,19 +13,20 @@ namespace ConsoleGame3F
 
         public override void update()
         {
-            Console.SetCursorPosition(x, Console.WindowHeight);
-            Console.Write(" ");
-
             if (Console.KeyAvailable)
             {
                 ConsoleKey key = Console.ReadKey(true).Key;
-                if (key.Equals(ConsoleKey.J))
+                if (key.Equals(ConsoleKey.A))
                 {
                     left();
                 }
-                if (key.Equals(ConsoleKey.K))
+                if (key.Equals(ConsoleKey.D))
                 {
                     right();
+                }
+                if (key.Equals(ConsoleKey.Spacebar))
+                {
+                    shoot(true);
                 }
             }
         }

@@ -23,8 +23,6 @@ namespace ConsoleGame3F
 
         public override void update()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write(" ");
 
             if (type == 0)
             {
