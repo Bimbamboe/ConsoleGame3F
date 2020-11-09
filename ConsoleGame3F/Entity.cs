@@ -6,7 +6,7 @@ namespace ConsoleGame3F
 {
     abstract class Entity
     {
-        private int x, y;
+        public int x, y;
         
         public void pos(int x, int y)
         {
@@ -33,5 +33,6 @@ namespace ConsoleGame3F
         {
 
         }
+
     }
 }
